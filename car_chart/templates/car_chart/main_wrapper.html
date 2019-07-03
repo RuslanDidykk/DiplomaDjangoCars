@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Car Chart</title>
+    {% load staticfiles %}
+
+    {% include 'car_chart/includes/bootstrap.html' %}
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container">
+        <p>
+            <a href="/car_chart" class="btn btn-primary btn-lg">Car Charts</a>
+        </p>
+    </div>
+</div>
+<div class="container">
+    <p>
+        {% block content %}
+
+        {% endblock %}
+    </p>
+    <hr>
+    &copy; All rights reserved 2018
+</div>
+</body>
+</html>

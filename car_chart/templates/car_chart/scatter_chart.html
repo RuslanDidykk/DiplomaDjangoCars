@@ -1,0 +1,37 @@
+{% extends "car_chart/main_wrapper.html" %}
+
+{% block content %}
+    {% load staticfiles %}
+    <script src={% static "js/get_cars.js" %}></script>
+    <script src={% static "js/table_inserter.js" %}></script>
+
+    <form>
+        <div class="form-group">
+            <select class="form-control form-control-lg" id="make"
+                    onchange="load_models(this.options[this.selectedIndex].innerHTML)">
+                {% for make in makes %}
+                    <option>{{ make }}</option>
+                {% endfor %}
+            </select>
+            <select class="form-control" id="model" onchange="load_trims(this.options[this.selectedIndex].innerHTML)"
+                    disabled>
+            </select>
+            <select class="form-control" id="trim" onchange="load_years(this.options[this.selectedIndex].innerHTML)"
+                    disabled>
+            </select>
+            <select class="form-control" id="year" onchange="load_graph(this.options[this.selectedIndex].innerHTML)"
+                    disabled>
+            </select>
+        </div>
+    </form>
+    <button class="btn btn-primary" id="submit" onclick="load_graph(this.options[this.selectedIndex].innerHTML)">
+        Submit
+    </button>
+
+    <div id="chartExponential" style="height: 700px; width: 1200px"></div>
+
+    {% include 'car_chart/includes/included_graph.html' %}
+{% endblock %}
+
+
+
